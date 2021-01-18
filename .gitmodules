@@ -1,0 +1,3 @@
+[submodule "Alflytics"]
+	path = Alflytics
+	url = https://github.com/fcorti/Alflytics
