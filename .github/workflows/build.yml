@@ -17,7 +17,7 @@ jobs:
         fetch-depth: 0
     - name: Github CI uninstall
       run: |
-        sudo apt-get purge -y php* 
+        sudo apt-get purge -qy php* 
     - name: Alflytics install
       run: ./alflytics.sh
     - name: Alflytics Pause
