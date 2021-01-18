@@ -1,0 +1,29 @@
+name: Build CI
+
+on:
+  push:
+  pull_request:
+  release:
+    types: [published]
+  check_suite:
+    type: [rerequested]
+
+jobs:
+  alf-install:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.2.0
+      with:
+        fetch-depth: 0
+    - name: Github CI uninstall
+      run: |
+        sudo apt-get purge -y php* 
+    - name: Alflytics install
+      run: ./alflytics.sh
+    - name: Alflytics Pause
+      run: sleep 2m
+    - name: Basic web tests for Alflytics
+      run: |
+        java -version
+        ps faxww
+        wget -O - --no-check-certificate http://localhost:8080/
